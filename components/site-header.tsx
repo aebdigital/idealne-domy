@@ -38,10 +38,10 @@ export default function SiteHeader() {
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${scrolled ? "bg-[#272220]/95 backdrop-blur-md border-b border-white/5" : "bg-transparent"}`}>
-        <div className="site-container flex items-center justify-between h-24">
+        <div className="site-container flex items-center justify-between h-16 md:h-24">
           
-          {/* Left: Language Switcher */}
-          <div className="w-1/3 flex items-center">
+          {/* Left: Language Switcher (Desktop only) */}
+          <div className="hidden md:flex w-1/3 items-center">
             <button className="text-white transition-colors text-xs tracking-[0.2em] font-medium uppercase border border-white/20 rounded-full px-5 py-2.5 hover:bg-white/10 backdrop-blur-sm group">
               <span className="hover-split-text">
                 <span className="hover-split-text-inner" data-text="SK">SK</span>
@@ -49,8 +49,8 @@ export default function SiteHeader() {
             </button>
           </div>
 
-          {/* Center: Logo */}
-          <div className="w-1/3 flex justify-center">
+          {/* Logo - Start on Mobile, Center on Desktop */}
+          <div className="flex-1 md:w-1/3 flex justify-start md:justify-center">
             <Link href="/" className="flex items-center">
               <Image 
                 src="/images/logo.svg" 
@@ -63,7 +63,7 @@ export default function SiteHeader() {
           </div>
 
           {/* Right: Menu Toggle */}
-          <div className="w-1/3 flex justify-end">
+          <div className="flex md:w-1/3 justify-end items-center">
             <button
               onClick={() => setOpen(true)}
               className="text-white transition-colors text-xs tracking-[0.2em] font-medium uppercase border border-white/20 rounded-full px-5 py-2.5 flex items-center gap-3 hover:bg-white/10 backdrop-blur-sm group"
@@ -89,7 +89,7 @@ export default function SiteHeader() {
             animate={{ y: 0 }}
             exit={{ y: "-100%" }}
             transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed top-0 inset-x-0 h-[50vh] z-[60] bg-[#272220] flex flex-col overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.5)] border-b border-white/10"
+            className="fixed top-0 inset-x-0 h-[60vh] z-[60] bg-[#272220] flex flex-col overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.5)] border-b border-white/10"
           >
             {/* Texture */}
             <div className="absolute inset-0 z-0 pointer-events-none" style={{ backgroundImage: "url('/images/texture.svg')", backgroundSize: "cover", filter: "invert(1) opacity(0.3)" }} />

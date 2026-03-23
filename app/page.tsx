@@ -79,13 +79,11 @@ export default function HomePage() {
                   <h2 className="mb-6">
                     <Image src="/images/logo.svg" alt="Sme IDEÁLNE DOMY" width={240} height={50} className="h-10 md:h-12 w-auto" />
                   </h2>
-                  <p className="text-muted leading-relaxed text-lg mb-4">
-                    Sme stavebná spoločnosť zameraná výhradne na výstavbu rodinných domov.
-                    Špecializujeme sa na nízkoenergetické a pasívne domy s troma stupňami dokončenia.
+                  <p className="text-muted leading-relaxed text-lg mb-6 font-medium">
+                    „Staviame rodinné domy a stavby, ktoré odrážajú vašu predstavu o ideálnom bývaní“.
                   </p>
                   <p className="text-muted leading-relaxed mb-8">
-                    Víťaz CEZAAR 2022 v kategórii rodinné domy – Vila Bôrik. Člen Inštitútu
-                    pre pasívne domy a Slovenskej komory stavebných inžinierov.
+                    Sme zanietený tím stavbárov, projektantov a architektky a zameriavame sa na návrh a výstavbu moderných stavieb, ktoré spájajú premyslenú architektúru, poctivú remeselnú prácu s najnovšími technológiami. Výstavbu realizujeme s dôrazom na detaily, pri každom projekte rozmýšľame nad funkčnosťou, efektivitou a hľadáme energetickú úspornosť.
                   </p>
                   <Link href="/o-nas" className="btn-primary !bg-[#272220] !text-white !border-[#272220] group uppercase tracking-widest text-xs font-medium">
                     <span className="hover-split-text">
@@ -97,11 +95,11 @@ export default function HomePage() {
               <FadeIn variant="right">
                 <div className="img-hover-zoom rounded-2xl overflow-hidden shadow-2xl relative">
                   <Image
-                    src="/images/references/ref-01.jpg"
-                    alt="Vila Bôrik - Víťaz CEZAAR 2022"
+                    src="/images/new/25d73376321fa81ae495cbdacf7d88.jpeg"
+                    alt="Ideálne Domy - Naša práca"
                     width={800}
                     height={600}
-                    className="w-full h-[500px] object-cover"
+                    className="w-full aspect-[4/3] md:h-[500px] object-cover"
                   />
                   <motion.div 
                     initial={{ opacity: 1 }}
@@ -177,7 +175,7 @@ export default function HomePage() {
                   </h2>
                   <p className="text-muted mt-3">104+ dokončených rodinných domov po celom Slovensku</p>
                 </div>
-                <Link href="/referencie" className="btn-outline hidden md:inline-block group uppercase tracking-widest text-xs font-medium">
+                <Link href="/referencie" className="btn-outline !hidden md:!inline-block group uppercase tracking-widest text-xs font-medium">
                   <span className="hover-split-text">
                     <span className="hover-split-text-inner" data-text="VŠETKY REFERENCIE">VŠETKY REFERENCIE</span>
                   </span>
@@ -262,7 +260,7 @@ export default function HomePage() {
 
             <FadeIn>
               <div className="text-center mt-12">
-                <Link href="#referencie" className="btn-primary group uppercase tracking-widest text-xs font-medium">
+                <Link href="#referencie" className="btn-primary hidden md:inline-block group uppercase tracking-widest text-xs font-medium">
                   <span className="hover-split-text">
                     <span className="hover-split-text-inner" data-text="VŠETKY REFERENCIE">VŠETKY REFERENCIE</span>
                   </span>
