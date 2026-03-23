@@ -44,72 +44,74 @@ export default function HeroSlider() {
   const currentSlide = slides[current] || slides[0];
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-[#272220]">
-      <motion.div 
-        style={{ y }} 
-        className="absolute inset-x-0 -top-[15%] -bottom-[15%]"
-      >
-        {slides.map((slide, i) => (
-          <div key={i} className={`hero-slide ${i === current ? "active" : ""}`}>
-            <Image
-              src={slide.image}
-              alt={slide.title}
-              fill
-              className="object-cover"
-              priority={i === 0}
-            />
-            <div className="absolute inset-0 bg-black/30 pointer-events-none" />
-          </div>
-        ))}
-      </motion.div>
+    <div className="relative h-screen w-full">
+      <section className="fixed inset-0 w-full h-screen overflow-hidden bg-[#272220] z-0">
+        <motion.div 
+          style={{ y }} 
+          className="absolute inset-x-0 -top-[15%] -bottom-[15%]"
+        >
+          {slides.map((slide, i) => (
+            <div key={i} className={`hero-slide ${i === current ? "active" : ""}`}>
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                className="object-cover"
+                priority={i === 0}
+              />
+              <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+            </div>
+          ))}
+        </motion.div>
 
-      {/* Hero Bottom Content & Gradient */}
-      <div className="absolute inset-x-0 bottom-0 z-10 pb-16 pt-64 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none">
-        
-        <div className="site-container w-full h-full flex flex-col justify-end pointer-events-auto">
+        {/* Hero Bottom Content & Gradient */}
+        <div className="absolute inset-x-0 bottom-0 z-10 pb-16 pt-64 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none">
           
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
+          <div className="site-container w-full h-full flex flex-col justify-end pointer-events-auto">
             
-            {/* Left Block (Text and Indicators) */}
-            <div className="max-w-7xl">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
+              
+              {/* Left Block (Text and Indicators) */}
+              <div className="max-w-7xl">
 
-              {/* Slide indicators */}
-              <div className="flex gap-4 mb-10">
-                {slides.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrent(i)}
-                    className={`h-[2px] rounded-full transition-all duration-500 ${
-                      i === current ? "bg-white w-20" : "bg-white/30 w-8 hover:bg-white/60"
-                    }`}
-                  />
-                ))}
+                {/* Slide indicators */}
+                <div className="flex gap-4 mb-10">
+                  {slides.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrent(i)}
+                      className={`h-[2px] rounded-full transition-all duration-500 ${
+                        i === current ? "bg-white w-20" : "bg-white/30 w-8 hover:bg-white/60"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <h1
+                  className="font-heading text-5xl md:text-7xl lg:text-[5.5rem] text-white mb-8 leading-[1.05] tracking-tight"
+                  style={{ fontFamily: "var(--font-heading)" }}
+                >
+                  {currentSlide.title}
+                </h1>
+                <p className="text-lg md:text-xl text-white/90 font-light max-w-3xl leading-relaxed">
+                  {currentSlide.subtitle}
+                </p>
               </div>
 
-              <h1
-                className="font-heading text-5xl md:text-7xl lg:text-[5.5rem] text-white mb-8 leading-[1.05] tracking-tight"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                {currentSlide.title}
-              </h1>
-              <p className="text-lg md:text-xl text-white/90 font-light max-w-3xl leading-relaxed">
-                {currentSlide.subtitle}
-              </p>
-            </div>
+              {/* Right Block (CTA Button) */}
+              <div className="shrink-0 lg:pb-2">
+                <Link href="#kontakt" className="group flex justify-center bg-[#1a1715]/90 hover:bg-[#272220] backdrop-blur-md text-white text-center px-16 py-6 rounded-md transition-colors border border-white/10 uppercase tracking-[0.2em] text-sm font-medium w-full sm:w-auto min-w-[280px]">
+                  <span className="hover-split-text">
+                    <span className="hover-split-text-inner" data-text="Kontakt">Kontakt</span>
+                  </span>
+                  <span className="ml-2 transition-transform duration-500 group-hover:translate-x-1">&rarr;</span>
+                </Link>
+              </div>
 
-            {/* Right Block (CTA Button) */}
-            <div className="shrink-0 lg:pb-2">
-              <Link href="#kontakt" className="group flex justify-center bg-[#1a1715]/90 hover:bg-[#272220] backdrop-blur-md text-white text-center px-16 py-6 rounded-md transition-colors border border-white/10 uppercase tracking-[0.2em] text-sm font-medium w-full sm:w-auto min-w-[280px]">
-                <span className="hover-split-text">
-                  <span className="hover-split-text-inner" data-text="Kontakt">Kontakt</span>
-                </span>
-                <span className="ml-2 transition-transform duration-500 group-hover:translate-x-1">&rarr;</span>
-              </Link>
             </div>
-
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
