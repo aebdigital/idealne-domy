@@ -163,7 +163,10 @@ export default function HomePage() {
         </section>
 
         {/* References slider */}
-        <section className="section-large relative" style={{ background: "linear-gradient(to bottom, #fafaf8, #F9FAFB, #fafaf8)" }}>
+        <section 
+          className="section-large relative grain-overlay" 
+          style={{ backgroundImage: "url('/images/texture.svg'), linear-gradient(to bottom, #fafaf8, #F9FAFB, #fafaf8)" }}
+        >
           <div className="site-container">
             <FadeIn>
               <div className="flex items-end justify-between mb-10">
