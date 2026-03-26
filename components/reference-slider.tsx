@@ -2,8 +2,6 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-
 interface Reference {
   image: string;
   hoverImage?: string;
@@ -11,7 +9,7 @@ interface Reference {
   location: string;
   year: string;
   type: string;
-  slug: string;
+  slug?: string;
 }
 
 interface ReferenceSliderProps {
@@ -55,7 +53,7 @@ export default function ReferenceSlider({ references }: ReferenceSliderProps) {
       {/* Slider */}
       <div ref={sliderRef} className="ref-slider">
         {references.map((ref, i) => (
-          <Link key={i} href={`/referencie/${ref.slug}`} className="ref-card block group">
+          <div key={i} className="ref-card block group">
             <Image
               src={ref.image}
               alt={ref.title}
@@ -79,7 +77,7 @@ export default function ReferenceSlider({ references }: ReferenceSliderProps) {
               <h3 className="text-lg font-medium text-white">{ref.title}</h3>
               <p className="text-sm text-white/80 mt-1">{ref.location}</p>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>
